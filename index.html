@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metal Concerts Armenia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const konamiCode = [
+                'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
+                'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight',
+                'b', 'a'
+            ];
+            const exilethCode = [
+                'e', 'x', 'i', 'l', 'e', 't', 'h'
+            ];
+            const glitchCode = [
+                'g', 'l', 'i', 't', 'c', 'h'
+            ];
+
+            let konamiIndex = 0;
+            let exilethIndex = 0;
+            let glitchIndex = 0;
+
+            document.addEventListener('keydown', (event) => {
+                const key = event.key;
+
+                // Check for Konami Code
+                if (key === konamiCode[konamiIndex]) {
+                    konamiIndex++;
+                    if (konamiIndex === konamiCode.length) {
+                        window.location.href = 'https://lomando.com/main.html'; // Redirect for Konami Code
+                    }
+                } else {
+                    konamiIndex = 0; // Reset if the sequence is broken
+                }
+
+                // Check for Exileth Code
+                if (key === exilethCode[exilethIndex]) {
+                    exilethIndex++;
+                    if (exilethIndex === exilethCode.length) {
+                        // Display image for 3 seconds
+                        const exilethImage = document.createElement('img');
+                        exilethImage.src = 'https://f4.bcbits.com/img/a1042527311_65';
+                        exilethImage.style.position = 'fixed';
+                        exilethImage.style.top = '50%';
+                        exilethImage.style.left = '50%';
+                        exilethImage.style.transform = 'translate(-50%, -50%)';
+                        exilethImage.style.width = '300px'; // Adjust width as needed
+                        exilethImage.style.border = '5px solid white';
+                        exilethImage.style.zIndex = '1000';
+                        document.body.appendChild(exilethImage);
+
+                        setTimeout(() => {
+                            window.location.href = 'https://screenmessage.com/exileth'; // Redirect after 3 seconds
+                        }, 3000);
+                    }
+                } else {
+                    exilethIndex = 0; // Reset if the sequence is broken
+                }
+
+                // Check for Glitch Code
+                if (key === glitchCode[glitchIndex]) {
+                    glitchIndex++;
+                    if (glitchIndex === glitchCode.length) {
+                        startGlitchEffect(); // Start glitch effect
+                    }
+                } else {
+                    glitchIndex = 0; // Reset if the sequence is broken
+                }
+            });
+
+            function startGlitchEffect() {
+                const body = document.body;
+                let glitchInterval = setInterval(() => {
+                    body.style.filter = `hue-rotate(${Math.random() * 360}deg)`;
+                    body.style.opacity = Math.random(); // Random opacity for glitch effect
+                }, 100);
+
+                // Stop glitch effect after a certain time
+                setTimeout(() => {
+                    clearInterval(glitchInterval);
+                    body.style.filter = 'none'; // Reset filter
+                    body.style.opacity = '1'; // Reset opacity
+                }, 5000); // Duration of the glitch effect
+            }
+        });
+    </script>
+</head>
+<body>
+
+<header>
+    <h1>Metal Concerts Armenia</h1>
+    <nav>
+        <a href="#concerts">Concerts</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section id="concerts">
+    <h2>Upcoming Concerts</h2>
+    <div class="concerts">
+        <div class="concert-card">
+            <h3>Example Concert</h3>
+            <p><img src="https://cdn-icons-png.flaticon.com/512/10691/10691802.png" alt="Date Icon" class="icon"> Date: Example Date</p>
+            <p><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUQzfZdUwfnbf0ZDk3WPuay7BJ1yNmugmt_Q&s" alt="Location Icon" class="icon"> Location: Example Location</p>
+        </div>
+        <div class="concert-card">
+            <h3>Example Concert</h3>
+            <p><img src="https://cdn-icons-png.flaticon.com/512/10691/10691802.png" alt="Date Icon" class="icon"> Date: Example Date</p>
+            <p><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUQzfZdUwfnbf0ZDk3WPuay7BJ1yNmugmt_Q&s" alt="Location Icon" class="icon"> Location: Example Location</p>
+        </div>
+    </div>
+</section>
+
+<section id="gallery">
+    <h2>Gallery</h2>
+    <iframe class="gallery-video" src="https://www.youtube.com/embed/E7Otm0MSF1g" 
+            title="Про Метал в Армении (FT. Zenidew)" frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+    </iframe>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:richardabrahamyan9@gmail.com">richardabrahamyan9@gmail.com</a></p>
+    <p>Phone: +37477247033</p>
+</section>
+
+<footer>
+    <p>&copy; 2024 Metal Concerts Armenia. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
